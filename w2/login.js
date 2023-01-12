@@ -26,8 +26,7 @@ const app = {
         alert(err.data.message)
       })
     }
-  },
-  mounted() {}
+  }
 }
 
 createApp(app).mount('#app')

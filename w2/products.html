@@ -57,8 +57,7 @@
                   {{ product.price }}
                 </td>
                 <td width="150">
-                  <span class="text-success" v-if="product.is_enabled">啟用</span>
-                  <span v-else>未啟用</span>
+                  <span class="text-success">{{ product.is_enabled ? '啟用' : '未啟用' }}</span>
                 </td>
                 <td width="120">
                   <button type="button" class="btn btn-primary" @click="openProduct(product)">查看細節</button>
@@ -72,7 +71,8 @@
           <h2>單一產品細節</h2>
           <template v-if="tempProduct.title">
             <div class="card mb-3">
-              <img src="" class="card-img-top primary-image" alt="主圖">
+              <!-- 插入圖片 -->
+              <img :src="tempProduct.imageUrl" class="card-img-top primary-image" alt="主圖">
               <div class="card-body">
                 <h5 class="card-title">
                   {{ tempProduct.title }}
@@ -87,8 +87,9 @@
                 </div>
               </div>
             </div>
-            <template>
-              <img src="" alt="" class="images m-2">
+            <!-- 下方圖片區 -->
+            <template v-for="(image, id) in tempProduct.imagesUrl" :key="id">
+              <img v-if="image" :src="image" alt="`多圖 ${id+1}`" class="images m-2">
             </template>
           </template>
           <p class="text-secondary" v-else>請選擇一個商品查看</p>
