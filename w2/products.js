@@ -17,7 +17,7 @@ const app = {
           this.getData();
         })
         .catch((err) => {
-          console.dir(err);
+          alert(err.response.data.message);
           window.location = "login.html";
         })
     },
@@ -25,10 +25,9 @@ const app = {
       axios.get(`${url}/api/${path}/admin/products`)
       .then((res) => {
         this.products = res.data.products;
-        console.log(this.products);
       })
       .catch((err) => {
-        console.dir(err);
+        alert(err.response.data.message);
         window.location = "login.html";
       })
     },
