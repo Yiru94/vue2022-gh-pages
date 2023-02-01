@@ -63,34 +63,34 @@ const app = {
       if (this.isNew === true) { //新增post，要帶入{data}
         axios.post(`${url}api/${path}/admin/product`, { data: this.tempProduct })
           .then((res) => {
-            alert(res.data.message)
+            alert(res.data.message);
             this.getData();
             productModal.hide();
           })
           .catch((err) => {
-            alert(err.data.message)
+            alert(err.data.message);
           })
       } else if (this.isNew === false) { //編輯put，要帶入{data}
         axios.put(`${url}api/${path}/admin/product/${this.tempProduct.id}`, { data: this.tempProduct })
           .then((res) => {
-            alert(res.data.message)
+            alert(res.data.message);
             this.getData();
             productModal.hide();
           })
           .catch((err) => {
-            alert(err.data.message)
+            alert(err.data.message);
           })
       }
     },
     deleteProduct() {
       axios.delete(`${url}api/${path}/admin/product/${this.tempProduct.id}`)
       .then((res) => {
-        alert(res.data.message)
+        alert(res.data.message);
         delProductModal.hide();
         this.getData();
       })
       .catch((err) => {
-        alert(err.data.message)
+        alert(err.data.message);
       })
     },
     createImages() {
