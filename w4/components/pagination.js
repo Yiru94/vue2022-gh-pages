@@ -13,7 +13,10 @@ export default {
     <li class="page-item" 
         v-for="page in pages.total_pages" :key="page + 'page'"
         :class="{ active: page === pages.current_page }">
-      <a class="page-link" href="#"
+      <span v-if="page === pages.current_page" 
+        class="page-link">{{ page }}</span>
+      <a v-else
+        class="page-link" href="#"
         @click.prevent="getData(page)">{{ page }}</a>
     </li>
 

@@ -1,12 +1,12 @@
 import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
-import pagenation from './pagenation.js';
+import pagination from './components/pagination.js';
 
 const url = 'https://vue3-course-api.hexschool.io/v2/';
 const path = 'vuehwyiru';
 
 //宣告modal
-let productModal = "";
-let delProductModal = "";
+let productModal = null;
+let delProductModal = null;
 
 const app = createApp({
   data() {
@@ -20,7 +20,7 @@ const app = createApp({
     }
   },
   components:{
-    pagenation
+    pagination
   },
   methods: {
     checkLogin() {
