@@ -53,6 +53,7 @@ const productModal = {
     //所以關閉modal時，要淨空id
     //props單向數據流，無法更動id，用外層方法處理
     this.$refs.modal.addEventListener('hidden.bs.modal', event => {
+      this.qty = 1;
       this.openModal('');
     })
   }
@@ -163,12 +164,11 @@ const app = Vue.createApp({
     //送訂單
     sendOrder() {
       const order = this.form;
-      console.log(order);
       axios.post(`${url}api/${path}/order`, { "data": order })
         .then((res) => {
-          console.log(res)
           alert(res.data.message);
           this.$refs.form.resetForm();//淨空表單
+          this.form.message = '';
           this.getCarts();
         })
         .catch((err) => {
