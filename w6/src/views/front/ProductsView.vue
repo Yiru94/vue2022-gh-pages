@@ -41,9 +41,7 @@
                       @click="addToCart(product.id)"
                       :disabled="product.id === loadingItem"
                       >
-                      <!--  -->
                 <i class="fas fa-spinner fa-pulse" v-if="loadingItem === product.id">
-                  <!--  -->
                 </i>
                 加到購物車
               </button>
@@ -98,10 +96,12 @@ export default {
         product_id: id,
         qty: 1
       }
+      this.loadingItem = id
       this.$http.post(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`, { data })
         .then((res) => {
           this.product = res.data.product
           this.$refs.UserProductModal.hideModal()
+          this.loadingItem = ''
         })
         .catch((err) => {
           alert(err.message)

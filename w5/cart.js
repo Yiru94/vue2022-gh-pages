@@ -168,7 +168,7 @@ const app = Vue.createApp({
         .then((res) => {
           alert(res.data.message);
           this.$refs.form.resetForm();//淨空表單
-          this.form.message = '';
+          this.message = '';
           this.getCarts();
         })
         .catch((err) => {

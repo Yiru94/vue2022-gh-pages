@@ -1,9 +1,11 @@
 <template>
-  這是後台頁面
-  <router-link to="/admin/products">產品列表</router-link> |
-  <router-link to="/admin/orders">訂單列表</router-link> |
-  <router-link to="/">回前台首頁</router-link> |
-  <a href="#" @click.prevent="logout">登出</a>
+  <div class="container">
+    這是後台頁面
+    <router-link to="/admin/products">產品列表</router-link> |
+    <router-link to="/admin/orders">訂單列表</router-link> |
+    <router-link to="/">回前台首頁</router-link> |
+    <a href="#" @click.prevent="logout">登出</a>
+  </div>
   <hr>
   <RouterView v-if="checkSuccess"></RouterView>
 </template>
